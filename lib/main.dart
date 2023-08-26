@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'tabler_icons.dart';
+import 'onboarding.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.lightBlue),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Flights'),
+      home: const Onboarding(),
     );
   }
 }
@@ -31,13 +32,13 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
+  int currentPage = 0;
+  List<Widget> pages = const <Widget>[
+    // Home(),
+    // Profile(),
+    // Ticket(),
+    // Notifications(),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -46,23 +47,9 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
-        ),
-      ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
+        onPressed: () {},
+        tooltip: 'Floating Action Button',
         child: const Icon(Icons.add),
       ),
       bottomNavigationBar: NavigationBar(
@@ -75,6 +62,13 @@ class _MyHomePageState extends State<MyHomePage> {
           NavigationDestination(
               icon: Icon(TablerIcons.notifications), label: 'Notifications'),
         ],
+        // Set destination page
+        // onDestinationSelected: (int index) {
+        //   setState(() {
+        //     currentPage = index;
+        //   });
+        // },
+        // selectedIndex: currentPage,
         // Hide navigation bar labels
         labelBehavior: NavigationDestinationLabelBehavior.alwaysHide,
       ),

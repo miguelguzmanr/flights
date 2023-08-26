@@ -14,4 +14,6 @@ class TablerIcons {
       IconData(0xeb3d, fontFamily: fontFamily, fontPackage: fontPackage);
   static const IconData notifications =
       IconData(0xea35, fontFamily: fontFamily, fontPackage: fontPackage);
+  static const IconData plane =
+      IconData(0xeb6f, fontFamily: fontFamily, fontPackage: fontPackage);
 }
